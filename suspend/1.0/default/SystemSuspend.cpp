@@ -259,7 +259,7 @@ void SystemSuspend::initAutosuspend() {
                 PLOG(VERBOSE) << "error writing to /sys/power/state";
             }
 
-            mControlService->notifyWakeup(success);
+            //mControlService->notifyWakeup(success);
 
             updateSleepTime(success);
         }
@@ -269,13 +269,13 @@ void SystemSuspend::initAutosuspend() {
 }
 
 void SystemSuspend::updateSleepTime(bool success) {
-    static constexpr std::chrono::milliseconds kMaxSleepTime = 1min;
-    if (success) {
+    //static constexpr std::chrono::milliseconds kMaxSleepTime = 1min;
+    //if (success) {
         mSleepTime = mBaseSleepTime;
-        return;
-    }
+        //return;
+    //}
     // Double sleep time after each failure up to one minute.
-    mSleepTime = std::min(mSleepTime * 2, kMaxSleepTime);
+    //mSleepTime = mSleepTime; //std::min(mSleepTime * 2, kMaxSleepTime);
 }
 
 }  // namespace V1_0
