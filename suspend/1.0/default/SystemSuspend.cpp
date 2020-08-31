@@ -259,7 +259,7 @@ void SystemSuspend::initAutosuspend() {
                 PLOG(VERBOSE) << "error writing to /sys/power/state";
             }
 
-            //mControlService->notifyWakeup(success);
+            mControlService->notifyWakeup(success);
 
             updateSleepTime(success);
         }
